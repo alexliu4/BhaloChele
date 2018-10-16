@@ -1,0 +1,11 @@
+BhaloChele -- Hasif Ahmed, Shin Bamba, Yinon Chan and Vincent Chi
+SoftDev1 pd8
+P00 -- Da Art of Storytellin'
+DevLog
+
+To Do: design.pdf
+Completed:
+===========================================================================
+ahmedH -- 2018-10-15 18:35
+
+Added .gitignore and created devlog.txt. Working on design.pdf
