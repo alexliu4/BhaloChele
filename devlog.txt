@@ -37,7 +37,7 @@ Assigned due dates to assignments. Pushed new and improved design.pdf
 To Do: Begin coding.
 Completed: bootleggedLoginDraft.html
 ===========================================================================
-chiV -- 2018-10-18 14:03
+chiV -- 2018-10-17 14:03
 Added draft at end of class to work on later
 
 --------------------------------------------------------------------------
