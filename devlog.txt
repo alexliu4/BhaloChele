@@ -15,10 +15,10 @@ Added .gitignore and created devlog.txt. Working on design.pdf
 To Do: Revise design.pdf. Respond to https://www.stilldrinking.org/programming-sucks.
 Completed: Revised. Responded
 ===========================================================================
-bambaS -- 2018 -10-16 21:24
---------------------------------------------------------------------------------
+bambaS -- 2018-10-16 21:24
+--------------------------------------------------------------------------
 Fixed component map by adding arrows for clarification
-===============================================================================
+===========================================================================
 ahmedH -- 2018-10-16 23:07
 
 Thoughts- 
@@ -33,7 +33,12 @@ Actions-
 Assigned due dates to assignments. Pushed new and improved design.pdf
 
 --------------------------------------------------------------------------
-To Do: 
-Completed: 
+To Do: Begin coding.
+Completed: bootleggedLoginDraft.html
 ===========================================================================
-
+chiV -- 2018-10-18 14:03
+Added draft at end of class to work on later
+--------------------------------------------------------------------------
+To Do: Begin coding.
+Completed: bootleggedLoginDraft.html
+===========================================================================
