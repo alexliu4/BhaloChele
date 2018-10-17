@@ -18,6 +18,7 @@ Completed: Revised. Responded
 bambaS -- 2018-10-16 21:24
 --------------------------------------------------------------------------
 Fixed component map by adding arrows for clarification
+
 ===========================================================================
 ahmedH -- 2018-10-16 23:07
 
@@ -38,7 +39,8 @@ Completed: bootleggedLoginDraft.html
 ===========================================================================
 chiV -- 2018-10-18 14:03
 Added draft at end of class to work on later
+
 --------------------------------------------------------------------------
-To Do: Begin coding.
-Completed: bootleggedLoginDraft.html
+To Do:
+Completed:
 ===========================================================================
