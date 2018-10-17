@@ -19,7 +19,7 @@ ahmedH -- 2018-10-16 23:07
 
 Thoughts- 
 I found the article to provide a humorous take on computer science. The part about how when one person 
-is doing the work, they can undertsand everything, but once more people get on it starts to get confusing is 
+is doing the work, they can understand everything, but once more people get on it starts to get confusing is 
 something I can relate to. I realize the importance of logical variable names and comments to explain 
 what needs to be explained. 
 Actions- 
