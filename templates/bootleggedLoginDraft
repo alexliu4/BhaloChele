@@ -16,6 +16,15 @@
 	<br><br>
 	<input type="submit" name="submitButton" value="Login"></input>
       </form> <br> <br>
+      <form action="/auth" method="POST">
+	username <br>
+	<input type="text" name="rusername"></input>
+	<br><br>
+	password <br>
+	<input type="password" name="rpassword"></input>
+	<br><br>
+	<input type="submit" name="rsubmitButton" value="Register"></input>
+      </form> <br> <br>
 	{% block footer %}
 	&copy; Team BhaloChele (Good Boy).<br>
 	Yinon Chan, Shin Bamba, Hasif Ahmed, Vincent Chi
