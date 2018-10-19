@@ -54,6 +54,11 @@ Polished bootleggedLoginDraft.html to login.html
 Created Draft homepage.html
 
 --------------------------------------------------------------------------
+bambaS -- 2018-10-19 14:04
+
+fixed login logout. User can log in and log out now cool beans
+
+--------------------------------------------------------------------------------------
 To Do:
 Completed:
 ===========================================================================
