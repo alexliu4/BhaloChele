@@ -35,7 +35,7 @@ Assigned due dates to assignments. Pushed new and improved design.pdf
 
 --------------------------------------------------------------------------
 To Do: Begin coding.
-Completed: bootleggedLoginDraft.html
+Completed: bootleggedLoginDraft.html, app.py
 ===========================================================================
 chiV -- 2018-10-17 14:03
 Added draft at end of class to work on later
@@ -44,7 +44,16 @@ Added draft at end of class to work on later
 bambaS -- 2018-10-18 14:05
 
 created and added app.py. which will hold all flask operations
+
+--------------------------------------------------------------------------
+To Do: To Get a Working Version
+Completed: login.html, (bootlegged) homepage.html
 ===========================================================================
+chiV -- 2018-10-19 14:02
+Polished bootleggedLoginDraft.html to login.html
+Created Draft homepage.html
+
+--------------------------------------------------------------------------
 To Do:
 Completed:
 ===========================================================================
