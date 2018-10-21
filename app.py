@@ -20,7 +20,7 @@ def login():
         session['sh'] = 'hi' #logs in user
         return render_template('homepage.html')#send to welcome page
     else:
-        flash("invalid username/password. Please try again. If you do not have an account please register")
+        flash("Invalid username/password. Please try again. If you do not have an account please register")
         return render_template("login.html")
 
 @app.route("/logout", methods = ["POST", "GET"])
