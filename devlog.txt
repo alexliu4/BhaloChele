@@ -22,12 +22,12 @@ Fixed component map by adding arrows for clarification
 ===========================================================================
 ahmedH -- 2018-10-16 23:07
 
-Thoughts- 
-I found the article to provide a humorous take on computer science. The part about how when one person 
-is doing the work, they can understand everything, but once more people get on it starts to get confusing is 
-something I can relate to. I realize the importance of logical variable names and comments to explain 
-what needs to be explained. 
-Actions- 
+Thoughts-
+I found the article to provide a humorous take on computer science. The part about how when one person
+is doing the work, they can understand everything, but once more people get on it starts to get confusing is
+something I can relate to. I realize the importance of logical variable names and comments to explain
+what needs to be explained.
+Actions-
 - Use useful variable names
 - Use comments to explain to not only teamates, but also yourself
 
@@ -67,3 +67,7 @@ users can now register accounts
 To Do:
 Completed:
 ===========================================================================
+chanD -- 2018-10-21 18:22
+Added a working db and db functions.
+
+--------------------------------------------------------------------------
