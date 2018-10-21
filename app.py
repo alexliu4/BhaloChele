@@ -18,21 +18,27 @@ def home():
 def login():
     if request.form['username'] in users and request.form['password'] == users[request.form['username']]:
         session['sh'] = 'hi' #logs in user
-        return redirect(url_for('home'))#send to welcome page
+        return render_template('homepage.html')#send to welcome page
     else:
         flash("invalid username/password. Please try again. If you do not have an account please register")
-        return redirect(url_for("login"))
+        return render_template("login.html")
 
 @app.route("/logout", methods = ["POST", "GET"])
 def gohome():
 	session.pop('sh',None)#logs out user. None used if no users are logged in
 	return redirect(url_for('home'))#Send to login page
+#Send to login page
 
 
     
-@app.route("/register")
+@app.route("/register", methods = ['POST'])
 def register():
-    return 'lol'
+	if request.form['rusername'] in users: #checks is username is taken
+		flash("username is taken, please try again")
+		return render_template('login.html')#back to login page
+	users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
+	flash("registration complete. Please log in")
+	return render_template('login.html')#sends back to login page
 
 if __name__ == "__main__":
     app.debug = True
