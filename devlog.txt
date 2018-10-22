@@ -8,9 +8,7 @@ To Do: design.pdf
 Completed: design.pdf
 ===========================================================================
 ahmedH -- 2018-10-15 18:35
-
 Added .gitignore and created devlog.txt. Working on design.pdf
-
 ===========================================================================
 To Do: Revise design.pdf. Respond to https://www.stilldrinking.org/programming-sucks.
 Completed: Revised. Responded
@@ -18,10 +16,8 @@ Completed: Revised. Responded
 bambaS -- 2018-10-16 21:24
 --------------------------------------------------------------------------
 Fixed component map by adding arrows for clarification
-
 ===========================================================================
 ahmedH -- 2018-10-16 23:07
-
 Thoughts-
 I found the article to provide a humorous take on computer science. The part about how when one person
 is doing the work, they can understand everything, but once more people get on it starts to get confusing is
@@ -32,19 +28,15 @@ Actions-
 - Use comments to explain to not only teamates, but also yourself
 
 Assigned due dates to assignments. Pushed new and improved design.pdf
-
 ===========================================================================
 To Do: Begin coding.
 Completed: bootleggedLoginDraft.html, app.py
 ===========================================================================
 chiV -- 2018-10-17 14:03
 Added draft at end of class to work on later
-
 --------------------------------------------------------------------------
 bambaS -- 2018-10-18 14:05
-
 created and added app.py. which will hold all flask operations
-
 ===========================================================================
 To Do: To Get a Working Version
 Completed: login.html, (bootlegged) homepage.html
@@ -52,24 +44,19 @@ Completed: login.html, (bootlegged) homepage.html
 chiV -- 2018-10-19 14:02
 Polished bootleggedLoginDraft.html to login.html
 Created Draft homepage.html
-
 --------------------------------------------------------------------------
 bambaS -- 2018-10-19 14:04
 fixed login logout. User can log in and log out now cool beans
-
 --------------------------------------------------------------------------
 bambaS -- 2018-10-21 16:24
 users can now register accounts
-
 ===========================================================================
 To Do: Get db file operational
 Completed: Got functioning db file
 ===========================================================================
 chanD -- 2018-10-21 18:22
 Added a working db and db functions.
-
 ---------------------------------------------------------------------------
-
 ===========================================================================
 To Do: Get SQL and Flask to interact
 Completed:
