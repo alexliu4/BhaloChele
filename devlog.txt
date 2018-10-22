@@ -59,7 +59,7 @@ Added a working db and db functions.
 ---------------------------------------------------------------------------
 ===========================================================================
 To Do: Get SQL and Flask to interact
-Completed:
+Completed: register.html
 ===========================================================================
 chanD -- 2018-10-22 13:30
 Work with Shin and Hasif to get SQL code to interact with Flask code. 
@@ -72,6 +72,7 @@ Work with Derek and Shin.
 ---------------------------------------------------------------------------
 chiV -- 2018-10-22 13:30 
 Implemented search bar. Updated corresponding Jinja code for flashed messages.
+register.html and separated login and register forms.
 ===========================================================================
 To Do:
 Completed:
