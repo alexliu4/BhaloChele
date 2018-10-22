@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+  </head>
+  <body>
+	<center>
+		{% set messages = get_flashed_messages() %}
+		{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor %}
+    {% block register %}
+    <form action="/register" method="POST">
+    username <br>
+    <input type="text" name="rusername"></input>
+    <br><br>
+    password <br>
+    <input type="password" name="rpassword"></input>
+    <br><br>
+    <input type="submit" name="rsubmitButton" value="Register"></input>
+    </form> <br> <br>
+    {% endblock %}
+  </center>
+  </body>
+</html>
