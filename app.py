@@ -1,11 +1,13 @@
-import os
-
+import os, sqlite3
+import dbfuncs as dbfuncs
 from flask import Flask, render_template, redirect, session, flash, request, url_for
 app = Flask(__name__)
 
 app.secret_key = os.urandom(32) #generate random key to use session for cookies
 
 users = {'sh':'hi'}
+
+
 
 @app.route("/")
 def home():
@@ -27,18 +29,25 @@ def login():
 def gohome():
 	session.pop('sh',None)#logs out user. None used if no users are logged in
 	return redirect(url_for('home'))#Send to login page
-#Send to login page
-
 
     
 @app.route("/register", methods = ['POST'])
 def register():
-	if request.form['rusername'] in users: #checks is username is taken
-		flash("username is taken, please try again")
-		return render_template('login.html')#back to login page
-	users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
-	flash("registration complete. Please log in")
-	return render_template('login.html')#sends back to login page
+    DB_FILE="curbur.db"
+    db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+    c = db.cursor()               #facilitate db ops
+    with sqlite3.connect("curbur.db") as cur:
+        dbfuncs.add_account(request.form['rusername'],request.form['rpassword'])
+    if request.form['rusername'] in users: #checks is username is taken
+        flash("username is taken, please try again")
+        return render_template('login.html')#back to login page
+    users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
+    flash("registration complete. Please log in")
+
+    db.commit()
+    db.close()
+    return render_template('login.html')#sends back to login page
+
 
 if __name__ == "__main__":
     app.debug = True

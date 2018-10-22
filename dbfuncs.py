@@ -31,10 +31,10 @@ def add_new_story(acc_id,title,text):
     c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
     c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
 
-add_account('a', 'a')
-add_account('b','b')
-add_new_story(0, 'story1', 'blah blah blah.')
-add_text(1, 'story1', 'halb halb halb.')
+#add_account('a', 'a')
+#add_account('b','b')
+#add_new_story(0, 'story1', 'blah blah blah.')
+#add_text(1, 'story1', 'halb halb halb.')
 #==========================================================
 
 db.commit() #save changes
