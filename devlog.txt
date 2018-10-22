@@ -86,7 +86,7 @@ ahmedH -- 2018-10-22 13:30
 Work with Derek and Shin. 
 ---------------------------------------------------------------------------
 chiV -- 2018-10-22 13:30 
-Implement search bar functionality. 
+Implemented search bar. Updated corresponding Jinja code for flashed messages.
 ===========================================================================
 To Do:
 Completed:
