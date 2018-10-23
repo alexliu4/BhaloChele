@@ -33,22 +33,24 @@ def gohome():
     
 @app.route("/register", methods = ['POST'])
 def register():
-    DB_FILE="curbur.db"
-    db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-    c = db.cursor()               #facilitate db ops
-    with sqlite3.connect("curbur.db") as cur:
-        dbfuncs.add_account(request.form['rusername'],request.form['rpassword'])
-    if request.form['rusername'] in users: #checks is username is taken
-        flash("username is taken, please try again")
-        return render_template('login.html')#back to login page
-    users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
-    flash("registration complete. Please log in")
+	#DB_FILE="curbur.db"
+	#db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+	#c = db.cursor()               #facilitate db ops
+	db = sqlite3.connect("curbur.db",)
+	c = db.cursor()
+	dbfuncs.add_account(request.form['rusername'],request.form['rpassword'])
+	if request.form['rusername'] in users: #checks is username is taken
+		flash("username is taken, please try again")
+		return render_template('login.html')#back to login page
+	users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
+	flash("registration complete. Please log in")
+	db.commit()
+	db.close()
+	return render_template('login.html')#sends back to login page
 
-    db.commit()
-    db.close()
-    return render_template('login.html')#sends back to login page
-
-
+@app.route("/registerGo", methods = ['POST'])
+def go():
+	return render_template("register.html")
 if __name__ == "__main__":
     app.debug = True
     app.run()

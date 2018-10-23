@@ -2,18 +2,23 @@ import sqlite3   #enable control of an sqlite database
 
 DB_FILE="curbur.db"
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
 
 #==========================================================
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
 def add_account(user, pswd):
-    c.execute("SELECT account_id FROM accounts")
-    id = 0
-    for thing in c:
-        id = int(thing[0])
-    c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", id+1, user, pswd))
+	DB_FILE="curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
+	c = db.cursor()               #facilitate db ops
+
+	c.execute("SELECT account_id FROM accounts")
+	id = 0
+	for thing in c:
+		id = int(thing[0])
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", id+1, user, pswd))
 
 def add_to_viewed_stories(acc_id, title):
     c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
