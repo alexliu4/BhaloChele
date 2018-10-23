@@ -74,6 +74,7 @@ chiV -- 2018-10-22 13:30
 Implemented search bar. Updated corresponding Jinja code for flashed messages.
 register.html and separated login and register forms.
 ===========================================================================
-To Do:
+To Do: Launch Instructions
 Completed:
 ===========================================================================
+
