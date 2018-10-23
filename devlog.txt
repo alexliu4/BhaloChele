@@ -75,6 +75,11 @@ Implemented search bar. Updated corresponding Jinja code for flashed messages.
 register.html and separated login and register forms.
 ===========================================================================
 To Do: Launch Instructions
+Completed: Done
+===========================================================================
+ahmedH -- 2018-10-22 21:27
+Updated README with launch instructions and dependencies. 
+===========================================================================
+To Do:
 Completed:
 ===========================================================================
-
