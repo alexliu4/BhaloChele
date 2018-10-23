@@ -39,6 +39,25 @@ def add_new_story(acc_id,title,text):
     c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
     c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
 
+def get_accounts(user):
+	DB_FILE="curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
+	c = db.cursor()
+	c.execute("SELECT * FROM {0}".format("accounts"))
+
+	for thing in c:
+		if user == thing[1]:
+			x = thing[2]
+			db.commit() #save changes
+			db.close()
+			return x
+	db.commit() #save changes
+	db.close() #close database
+	return ""
+
+print(get_accounts("asdsdaaaasdasdsd"))
+
 #add_account('a', 'a')
 #add_account('b','b')
 #add_new_story(0, 'story1', 'blah blah blah.')
