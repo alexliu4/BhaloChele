@@ -18,9 +18,9 @@ def add_account(user, pswd):
 	id = 0
 	for thing in c:
 		id = int(thing[0])
-    c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", id+1, user, pswd))
-    db.commit() #save changes
-    db.close() #close database
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", id+1, user, pswd))
+	db.commit() #save changes
+	db.close() #close database
 
 
 def add_to_viewed_stories(acc_id, title):
