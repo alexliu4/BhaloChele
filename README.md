@@ -1,6 +1,6 @@
 # BhaloChele
-Welcome to BhaloChele! We have created a collaborative storytelling website.
-/tDependencies:
+Welcome to BhaloChele! We have created a collaborative storytelling website.  
+Dependencies:
 - Python3
 - Virtual Enviornment
   - To install virtual enviorment:
@@ -9,8 +9,8 @@ Welcome to BhaloChele! We have created a collaborative storytelling website.
   - To install flask-
     - activate virtual enviornment with command . path/venv name/bin/activate
     - enter pip install flask 
-    - enter pip install wheel
-/tLaunch Instructions: 
+    - enter pip install wheel  
+Launch Instructions: 
 1. Activate virtual enviornment with command . path/venv name/bin/activate 
 2. cd into repository containing python flask file
 3. Enter python app.py into terminal
