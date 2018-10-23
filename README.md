@@ -7,7 +7,7 @@ Dependencies:
     - type: python3 -m venv in terminal 
 - Flask
   - To install flask-
-    - activate virtual enviornment with command . path/<venv name>/bin/activate
+    - activate virtual enviornment with command . path/venvname/bin/activate
     - enter pip install flask 
     - enter pip install wheel
 Launch Instructions: 
