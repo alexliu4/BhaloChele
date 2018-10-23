@@ -30,7 +30,7 @@ def gohome():
 	session.pop('sh',None)#logs out user. None used if no users are logged in
 	return redirect(url_for('home'))#Send to login page
 
-    
+
 @app.route("/register", methods = ['POST'])
 def register():
 	#DB_FILE="curbur.db"
@@ -54,4 +54,3 @@ def go():
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
