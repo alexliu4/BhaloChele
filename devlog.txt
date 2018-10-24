@@ -62,15 +62,15 @@ To Do: Get SQL and Flask to interact
 Completed: register.html
 ===========================================================================
 chanD -- 2018-10-22 13:30
-Work with Shin and Hasif to get SQL code to interact with Flask code. 
+Work with Shin and Hasif to get SQL code to interact with Flask code.
 ---------------------------------------------------------------------------
-bambaS -- 2018-10-22 13:30 
+bambaS -- 2018-10-22 13:30
 Work with Derek and Hasif.
 ---------------------------------------------------------------------------
-ahmedH -- 2018-10-22 13:30 
-Work with Derek and Shin. 
+ahmedH -- 2018-10-22 13:30
+Work with Derek and Shin.
 ---------------------------------------------------------------------------
-chiV -- 2018-10-22 13:30 
+chiV -- 2018-10-22 13:30
 Implemented search bar. Updated corresponding Jinja code for flashed messages.
 register.html and separated login and register forms.
 ===========================================================================
@@ -78,7 +78,7 @@ To Do: Launch Instructions
 Completed: Done
 ===========================================================================
 ahmedH -- 2018-10-22 21:27
-Updated README with launch instructions and dependencies. 
+Updated README with launch instructions and dependencies.
 ===========================================================================
 bambaS -- 2018-10-23 14:01
 refactored code and fixed register
@@ -86,6 +86,9 @@ refactored code and fixed register
 bambaS -- 2018-10-23 20:31
 users can now log in using accounts from the database
 ========================================================
+chanD -- 2018-10-23 21:06
+Fixed homepage redirect so it works properly
+===========================================================================
 To Do:
 Completed:
 ===========================================================================
