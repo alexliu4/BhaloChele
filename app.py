@@ -18,12 +18,23 @@ def home():
 
 @app.route("/auth", methods = ['POST'])
 def login():
-    if request.form['username'] in users and request.form['password'] == users[request.form['username']]:
-        session['sh'] = 'hi' #logs in user
-        return render_template('homepage.html')#send to welcome page
-    else:
-        flash("Invalid username/password. Please try again. If you do not have an account please register")
-        return render_template("login.html")
+	wow = dbfuncs.get_accounts(request.form['username'])
+	if len(wow) > 0 and wow == request.form['password']:
+		session[request.form['username']] = request.form['password'] #logs in user
+		return render_template('homepage.html')#send to welcome page
+	else:
+		flash("Invalid username/password. Please try again. If you do not have an account please register")
+		return render_template("login.html")
+
+
+
+
+    #if request.form['username'] in users and request.form['password'] == users[request.form['username']]:
+    #    session['sh'] = 'hi' #logs in user
+    #    return render_template('homepage.html')#send to welcome page
+    #else:
+    #    flash("Invalid username/password. Please try again. If you do not have an account please register")
+    #    return render_template("login.html")
 
 @app.route("/logout", methods = ["POST", "GET"])
 def gohome():
@@ -51,6 +62,8 @@ def register():
 @app.route("/registerGo", methods = ['POST'])
 def go():
 	return render_template("register.html")
+
+	
 if __name__ == "__main__":
     app.debug = True
     app.run()

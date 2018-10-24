@@ -83,6 +83,9 @@ Updated README with launch instructions and dependencies.
 bambaS -- 2018-10-23 14:01
 refactored code and fixed register
 =========================================================
+bambaS -- 2018-10-23 20:31
+users can now log in using accounts from the database
+========================================================
 To Do:
 Completed:
 ===========================================================================

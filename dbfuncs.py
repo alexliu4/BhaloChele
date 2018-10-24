@@ -46,10 +46,9 @@ def add_new_story(acc_id,title,text):
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
-
-    add_to_viewed_stories(acc_id, title)
-    c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
-    c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
+	add_to_viewed_stories(acc_id, title)
+	c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
+	sc.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
 	db.commit() #save changes
 	db.close() #close database
 
