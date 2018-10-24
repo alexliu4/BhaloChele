@@ -89,6 +89,8 @@ users can now log in using accounts from the database
 chanD -- 2018-10-23 21:06
 Fixed homepage redirect so it works properly
 ===========================================================================
-To Do:
-Completed:
+To Do: Fix Logout and Start Pages
+Completed: Minor Bug Fixes
 ===========================================================================
+chiV -- 2018-13-20
+Fixed logout forms with search form overlap.
