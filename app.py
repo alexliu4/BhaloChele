@@ -11,10 +11,9 @@ users = {'sh':'hi'}
 
 @app.route("/")
 def home():
-    if 'logged_in?' in session: #if a user is logged in
-        if session['logged_in?']:
-            print(session['username'])
-            return render_template("homepage.html", user = session['username'])#send to welcome page
+    if 'logged_in?' in session and session['logged_in?']: #if a user is logged in
+        print(session['username'])
+        return render_template("homepage.html", user = session['username'])#send to welcome page
     else:
         return render_template("login.html")#login page
 
