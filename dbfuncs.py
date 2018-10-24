@@ -11,7 +11,7 @@ c = db.cursor()               #facilitate db ops
 def add_account(user, pswd):
 	DB_FILE="curbur.db"
 
-	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
+	db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
 
 	c.execute("SELECT account_id FROM accounts")
