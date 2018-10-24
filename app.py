@@ -11,20 +11,24 @@ users = {'sh':'hi'}
 
 @app.route("/")
 def home():
-    if 'sh' in session: #if a user is logged in
-        return render_template("homepage.html", user = 'sh')#send to welcome page
+    if 'logged_in?' in session: #if a user is logged in
+        if session['logged_in?']:
+            print(session['username'])
+            return render_template("homepage.html", user = session['username'])#send to welcome page
     else:
         return render_template("login.html")#login page
 
 @app.route("/auth", methods = ['POST'])
 def login():
-	wow = dbfuncs.get_accounts(request.form['username'])
-	if len(wow) > 0 and wow == request.form['password']:
-		session[request.form['username']] = request.form['password'] #logs in user
-		return render_template('homepage.html')#send to welcome page
-	else:
-		flash("Invalid username/password. Please try again. If you do not have an account please register")
-		return render_template("login.html")
+    wow = dbfuncs.get_accounts(request.form['username'])
+    if len(wow) > 0 and wow == request.form['password']:
+        session['username'] = request.form['username']
+        #session[request.form['username']] = request.form['password'] #logs in user
+        session["logged_in?"] = True
+        return render_template('homepage.html')#send to welcome page
+    else:
+        flash("Invalid username/password. Please try again. If you do not have an account please register")
+        return render_template("login.html")
 
 
 
@@ -38,8 +42,9 @@ def login():
 
 @app.route("/logout", methods = ["POST", "GET"])
 def gohome():
-	session.pop('sh',None)#logs out user. None used if no users are logged in
-	return redirect(url_for('home'))#Send to login page
+    session.pop('sh',None)#logs out user. None used if no users are logged in
+    session["logged_in?"] = False
+    return redirect(url_for('home'))#Send to login page
 
 
 @app.route("/register", methods = ['POST'])
@@ -63,7 +68,7 @@ def register():
 def go():
 	return render_template("register.html")
 
-	
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
