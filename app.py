@@ -42,7 +42,7 @@ def login():
 
 @app.route("/logout", methods = ["POST", "GET"])
 def gohome():
-    session.pop('sh',None)#logs out user. None used if no users are logged in
+    session.pop('username',None)#logs out user. None used if no users are logged in
     session["logged_in?"] = False
     return redirect(url_for('home'))#Send to login page
 
@@ -58,7 +58,7 @@ def register():
 	if request.form['rusername'] in users: #checks is username is taken
 		flash("username is taken, please try again")
 		return render_template('login.html')#back to login page
-	users[request.form['rusername']] = request.form['rpassword']#adds userame/password to dictionary
+	users[request.form['rusername']] = request.form['rpassword']#adds username/password to dictionary
 	flash("registration complete. Please log in")
 	db.commit()
 	db.close()
