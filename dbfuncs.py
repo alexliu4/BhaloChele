@@ -14,14 +14,19 @@ def add_account(user, pswd):
 	db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
 
-	c.execute("SELECT account_id FROM accounts")
+	c.execute("SELECT * FROM accounts")
 	id = 0
 	for thing in c:
+		if user == thing[1]:
+			db.commit() #save changes
+			db.close() #close database
+			return False
 		print(id)
 		id = thing[0]
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", int(id)+1, user, pswd))
 	db.commit() #save changes
 	db.close() #close database
+	return True
 
 
 def add_to_viewed_stories(acc_id, title):
