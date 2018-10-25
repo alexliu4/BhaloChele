@@ -17,8 +17,9 @@ def add_account(user, pswd):
 	c.execute("SELECT account_id FROM accounts")
 	id = 0
 	for thing in c:
-		id = int(thing[0])
-	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", id+1, user, pswd))
+		print(id)
+		id = thing[0]
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", int(id)+1, user, pswd))
 	db.commit() #save changes
 	db.close() #close database
 

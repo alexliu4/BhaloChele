@@ -8,7 +8,7 @@ c = db.cursor()               #facilitate db ops
 #==========================================================
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
-c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE, {3} TEXT);".format("accounts", "account_id", "username", "password"))
+c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT, {3} TEXT);".format("accounts", "account_id", "username", "password"))
 c.execute("CREATE TABLE {0} ({1} INTEGER, {2} TEXT);".format("stories_viewable", "account_id", "titles"))
 c.execute("CREATE TABLE {0} ({1} TEXT UNIQUE);".format("list_stories", "titles"))
 
