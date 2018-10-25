@@ -28,6 +28,21 @@ def add_account(user, pswd):
 	db.close() #close database
 	return True
 
+def search_stories(term):
+	DB_FILE="curbur.db"
+	db = sqlite3.connect(DB_FILE)
+	c = db.cursor()
+
+	c.execute("SELECT * FROM list_stories")
+	stories = []
+	for thing in c:
+		if term.lower() in thing[0].lower():
+			stories.append(thing[0])
+	return stories
+	db.commit() #save changes
+	db.close() #close database
+
+
 
 def add_to_viewed_stories(acc_id, title):
     c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
@@ -54,7 +69,8 @@ def add_new_story(acc_id,title,text):
 	c = db.cursor()               #facilitate db ops
 	add_to_viewed_stories(acc_id, title)
 	c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
-	sc.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
+	c.execute("INSERT INTO {0} VALUES('{1}')".format("list_stories", title))
 	db.commit() #save changes
 	db.close() #close database
 
