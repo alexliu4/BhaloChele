@@ -22,12 +22,11 @@ def login():
     wow = dbfuncs.get_accounts(request.form['username'])
     if len(wow) > 0 and wow == request.form['password']:
         session['username'] = request.form['username']
-        #session[request.form['username']] = request.form['password'] #logs in user
         session["logged_in?"] = True
         return render_template('homepage.html')#send to welcome page
     else:
         flash("Invalid username/password. Please try again. If you do not have an account please register")
-        return render_template("login.html")
+        return render_template("login.html",name = request.form['username'])
 
 
 
@@ -48,25 +47,32 @@ def gohome():
 
 @app.route("/register", methods = ['POST'])
 def register():
-	#DB_FILE="curbur.db"
-	#db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-	#c = db.cursor()               #facilitate db ops
-	db = sqlite3.connect("curbur.db",)
-	c = db.cursor()
-	dbfuncs.add_account(request.form['rusername'],request.form['rpassword'])
-	if request.form['rusername'] in users: #checks is username is taken
+	if not dbfuncs.add_account(request.form['rusername'],request.form['rpassword']): #checks is username is taken
 		flash("username is taken, please try again")
 		return render_template('login.html')#back to login page
-	users[request.form['rusername']] = request.form['rpassword']#adds username/password to dictionary
 	flash("registration complete. Please log in")
-	db.commit()
-	db.close()
 	return render_template('login.html')#sends back to login page
 
 @app.route("/registerGo", methods = ['POST'])
 def go():
 	return render_template("register.html")
 
+
+@app.route("/addStory", methods = ['POST','GET'])
+def sendStoryPage():
+    if 'logged_in?' in session:
+        return render_template("add.html")
+    else:
+        flash("YOU ARE NOT LOGGED IN ANGER!!!!!")
+        return redirect(url_for('home'))
+
+
+
+
+
+
+
+    
 
 if __name__ == "__main__":
     app.debug = True
