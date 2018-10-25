@@ -67,7 +67,11 @@ def sendStoryPage():
         return redirect(url_for('home'))
 
 
-
+@app.route("/peeppee", methods = ['POST'])
+def addStory():
+    #add request.form['title']
+    #add request.form['content']
+    return redirect(url_for('home'))#Send to homepage
 
 
 
