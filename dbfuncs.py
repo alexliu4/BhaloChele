@@ -51,14 +51,16 @@ def find_id(user):
 			break
 	return id
 
-def add_to_viewed_stories(acc_id, title):
+def add_to_viewed_stories(user, title):
+	acc_id = find_id(user)
     c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
 
-def add_text(acc_id, title, text):
+def add_text(user, title, text):
 	DB_FILE="curbur.db"
-
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
+
+	acc_id = find_id(user)
 
 	add_to_viewed_stories(acc_id, title)
 	c.execute("SELECT entry_id FROM {0}".format(title))
@@ -69,11 +71,14 @@ def add_text(acc_id, title, text):
 	db.commit() #save changes
 	db.close() #close database
 
-def add_new_story(acc_id,title,text):
+def add_new_story(user,title,text):
 	DB_FILE="curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
-	c = db.cursor()               #facilitate db ops
+	c = db.cursor()
+
+	acc_id = find_id(user)
+
 	add_to_viewed_stories(acc_id, title)
 	c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
