@@ -117,7 +117,10 @@ ahmedH -- 2018-10-25 13:43
 
 ---------------------------------------------------------------------------
 bambaS -- 2018-10-25 13:43
-
+Worked with Derek to check register for existing usernames
+------------------------------------------------------------
+bambaS -- 2018-10-25 22:14
+Users can now add storys that they need and want to share with the world
 ===========================================================================
 To Do:
 Completed:
