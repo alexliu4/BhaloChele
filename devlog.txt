@@ -98,11 +98,11 @@ Fixed logout forms with search form overlap.
 chanD -- 2018-10-24 13:30
 Worked with Shin and Hasif to fix limit size bug on database table contents (accounts table)
 ---------------------------------------------------------------------------
-ahmedH -- 2018-10-24 13:30 
-Worked with Derek and Shin. 
+ahmedH -- 2018-10-24 13:30
+Worked with Derek and Shin.
 ---------------------------------------------------------------------------
-bambaS -- 2018-10-24 13:30 
-Worked with Hasif and Derek 
+bambaS -- 2018-10-24 13:30
+Worked with Hasif and Derek
 ===========================================================================
 To Do: Add a add page functionality and ability for database to communicate with stories
 Completed:
@@ -111,14 +111,14 @@ chiV -- 2018-10-25 13:43
 
 ---------------------------------------------------------------------------
 chanD -- 2018-10-25 13:43
+Worked with Shin to add a check for existing usernames and added search functionality in the dbfuncs
+---------------------------------------------------------------------------
+ahmedH -- 2018-10-25 13:43
 
 ---------------------------------------------------------------------------
-ahmedH -- 2018-10-25 13:43 
- 
----------------------------------------------------------------------------
-bambaS -- 2018-10-25 13:43 
+bambaS -- 2018-10-25 13:43
 
 ===========================================================================
-To Do: 
+To Do:
 Completed:
 ===========================================================================
