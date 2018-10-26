@@ -43,17 +43,29 @@ def search_stories(term):
 	db.close() #close database
 
 def find_id(user):
+	DB_FILE="curbur.db"
+	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
+	c = db.cursor()               #facilitate db ops
 	c.execute("SELECT * FROM accounts")
 	id = 0
 	for thing in c:
 		if user == thing[1]:
 			id = int(thing[0])
 			break
+	db.commit() #save changes
+	db.close() #close database
 	return id
 
 def add_to_viewed_stories(user, title):
+	DB_FILE="curbur.db"
+	db = sqlite3.connect(DB_FILE)
+	c = db.cursor()
+
 	acc_id = find_id(user)
-    c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
+	
+	db.commit() #save changes
+	db.close() #close database
 
 def add_text(user, title, text):
 	DB_FILE="curbur.db"
