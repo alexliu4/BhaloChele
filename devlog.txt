@@ -108,7 +108,7 @@ To Do: Add a add page functionality and ability for database to communicate with
 Completed:
 ===========================================================================
 chiV -- 2018-10-25 13:43
-
+Wokred with Hasif and Shin - add Story button and page implemented as well as corresponding app.py code.
 ---------------------------------------------------------------------------
 chanD -- 2018-10-25 13:43
 Worked with Shin to add a check for existing usernames and added search functionality in the dbfuncs
