@@ -13,9 +13,13 @@ users = {'sh':'hi'}
 def home():
     if 'logged_in?' in session and session['logged_in?']: #if a user is logged in
         print(session['username'])
-        return render_template("homepage.html", user = session['username'])#send to welcome page
+
+        return render_template("homepage.html",
+                                    user = session['username'],
+                                    stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
     else:
-        return render_template("login.html")#login page
+        return render_template("login.html" )#login page
+
 
 @app.route("/auth", methods = ['POST'])
 def login():
@@ -23,7 +27,10 @@ def login():
     if len(wow) > 0 and wow == request.form['password']:
         session['username'] = request.form['username']
         session["logged_in?"] = True
-        return render_template('homepage.html')#send to welcome page
+        
+        return render_template('homepage.html',
+                                user = session['username'],
+                                stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
     else:
         flash("Invalid username/password. Please try again. If you do not have an account please register")
         return render_template("login.html",name = request.form['username'])

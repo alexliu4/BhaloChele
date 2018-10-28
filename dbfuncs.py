@@ -112,7 +112,21 @@ def get_accounts(user):
 	db.close() #close database
 	return ""
 
-print(get_accounts("asdsdaaaasdasdsd"))
+def viewed_stories(user):
+	DB_FILE = "curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread = False)
+	c = db.cursor()
+	x = c.execute("SELECT * FROM {0};".format("stories_viewable"))
+	d = {}
+	for j,k in x:
+		d[j] = k
+	return d
+	db.commit()
+	db.close()
+
+
+#print(get_accounts("asdsdaaaasdasdsd"))
 
 #add_account('a', 'a')
 #add_account('b','b')

@@ -15,6 +15,9 @@
       <center>
     	  <h3>Hello {{name}}, your story begins here.</h3>
 	    </center>
+      {% for acc_id,storyname in stories.items() %}
+      <b> {{storyname}} </b> <br>
+      {% endfor %}
       <form action ="/addStory">
         <input type="submit" name="addstory" value="Add Story"> </input>
       </form> <br>
