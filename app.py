@@ -85,8 +85,14 @@ def addStory():
 @app.route("/viewStory", methods = ['POST'])
 def view():
 	s_title = request.form['title']
-	latest_entry= dbfuncs.get_latest_update(s_title)
-
+	ids = db.funcs.get_added_accounts(s_title)
+	user_id = dbfuncs.find_id(session['username'])
+	for id in ids:
+		if user_id == id:
+			return render_template("story.html", title = s_title, text = "the whole story")
+		
+	
+	latesst_entry= dbfuncs.get_latest_update(s_title)
 	return render_template("story.html", title = s_title, text= latest_entry[0])
 	
 	

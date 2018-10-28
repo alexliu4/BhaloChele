@@ -51,7 +51,7 @@ def find_id(user):
 		if user == thing[1]:
 			id = int(thing[0])
 			return id
-	return 0
+	return -1
 	db.commit() #save changes
 	db.close() #close databas
 
@@ -90,7 +90,7 @@ def add_new_story(user,title,text):
 
 	add_to_viewed_stories(acc_id, title)
 	c.execute("CREATE TABLE {0} ({1} INTEGER PRIMARY KEY, {2} TEXT UNIQUE);".format(title, "entry_id", "entry"))
-	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, 0, text))
+	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, acc_id, text))
 	c.execute("INSERT INTO {0} VALUES('{1}')".format("list_stories", title))
 	db.commit() #save changes
 	db.close() #close database
@@ -135,6 +135,17 @@ def get_latest_update(title):
 	for entry in c:
 		latest = entry
 	return entry
+	db.commit()
+	db.close()
+	
+def get_added_accounts(title):
+	DB_FILE = "curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread = False)
+	c = db.cursor()
+	
+	ids = c.execute("SELECT {0} FROM {1}".format('entry_id',title))
+	return ids
 	db.commit()
 	db.close()
 #print(get_accounts("asdsdaaaasdasdsd"))
