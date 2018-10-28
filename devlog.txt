@@ -122,6 +122,9 @@ Worked with Derek to check register for existing usernames
 bambaS -- 2018-10-25 22:14
 Users can now add storys that they need and want to share with the world
 ===========================================================================
+bambaS -- 2019-10-28 1:35
+When go to story page, can see latest update/ add to story
+-------------------------------------------------------------------------------------------
 To Do:
 Completed:
 ===========================================================================

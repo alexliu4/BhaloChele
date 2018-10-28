@@ -125,7 +125,18 @@ def viewed_stories(user):
 	db.commit()
 	db.close()
 
+def get_latest_update(title):
+	DB_FILE = "curbur.db"
 
+	db = sqlite3.connect(DB_FILE,check_same_thread = False)
+	c = db.cursor()
+	
+	c.execute("SELECT {0} FROM {1}".format('entry',title))
+	for entry in c:
+		latest = entry
+	return entry
+	db.commit()
+	db.close()
 #print(get_accounts("asdsdaaaasdasdsd"))
 
 #add_account('a', 'a')

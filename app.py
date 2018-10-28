@@ -82,8 +82,13 @@ def addStory():
 	return redirect(url_for('home'))#Send to homepage
 
 
-
-
+@app.route("/viewStory", methods = ['POST'])
+def view():
+	s_title = request.form['title']
+	latest_entry= dbfuncs.get_latest_update(s_title)
+	return render_template("story.html", title = s_title, text= latest_entry)
+	
+	
 
 if __name__ == "__main__":
     app.debug = True
