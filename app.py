@@ -69,14 +69,14 @@ def sendStoryPage():
 
 @app.route("/peeppee", methods = ['POST'])
 def addStory():
-	dbfuncs.add_new_story(session.get(0),request.form['title'], request.form['content'])
+	dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
     #add request.form['title']
     #add request.form['content']
 	return redirect(url_for('home'))#Send to homepage
 
 
 
-    
+
 
 if __name__ == "__main__":
     app.debug = True

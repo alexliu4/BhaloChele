@@ -21,7 +21,6 @@ def add_account(user, pswd):
 			db.commit() #save changes
 			db.close() #close database
 			return False
-		print(id)
 		id = thing[0]
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}', '{3}');".format("accounts", int(id)+1, user, pswd))
 	db.commit() #save changes
@@ -49,12 +48,13 @@ def find_id(user):
 	c.execute("SELECT * FROM accounts")
 	id = 0
 	for thing in c:
-		if user == thing[1]:
+		print("id: " + str(id) + "thing1: " + thing[1] + " user: " + str(user) + " thing0: " + str(thing[0]))
+		if str(user) == thing[1]:
 			id = int(thing[0])
-			break
+			return id
+			print("this is the id: " + str(id))
 	db.commit() #save changes
-	db.close() #close database
-	return id
+	db.close() #close databas
 
 def add_to_viewed_stories(user, title):
 	DB_FILE="curbur.db"
@@ -63,7 +63,7 @@ def add_to_viewed_stories(user, title):
 
 	acc_id = find_id(user)
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
-	
+
 	db.commit() #save changes
 	db.close() #close database
 
