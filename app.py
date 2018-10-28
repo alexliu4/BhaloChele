@@ -86,7 +86,8 @@ def addStory():
 def view():
 	s_title = request.form['title']
 	latest_entry= dbfuncs.get_latest_update(s_title)
-	return render_template("story.html", title = s_title, text= latest_entry)
+
+	return render_template("story.html", title = s_title, text= latest_entry[0])
 	
 	
 

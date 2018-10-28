@@ -6,7 +6,7 @@
   <body>
 	  <form action="/search" method= "POST">
 	    search <br>
-	    <input type= "title" name= "search"></input> <br><br>
+	    <input type= "text" name= "search"></input> <br><br>
 	    <input type= "submit" name = "subbutton" value ="Search"></input>
     </form>
       <form action="/logout">
@@ -15,7 +15,7 @@
       <center>
     	  <h3>Hello {{name}}, your story begins here.</h3>
 	    </center>
-      <form action = "viewStory">
+      <form action = "viewStory"method="POST">
       {% for acc_id,storyname in stories.items() %}
       <input type = "submit" name = "title" value = {{storyname}}></input>
       {% endfor %}
