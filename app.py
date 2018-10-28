@@ -89,7 +89,7 @@ def view():
 	user_id = dbfuncs.find_id(session['username'])
 	for id in ids:
 		if user_id == id:
-			return render_template("story.html", title = s_title, text = "the whole story")
+			return render_template("story.html", title = s_title, text = db.funcs.whole_story(s_title))
 		
 	
 	latesst_entry= dbfuncs.get_latest_update(s_title)

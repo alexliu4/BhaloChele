@@ -148,6 +148,18 @@ def get_added_accounts(title):
 	return ids
 	db.commit()
 	db.close()
+	
+def whole_story(title):
+	DB_FILE = "curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread = False)
+	c = db.cursor()
+	
+	c.execute("SELECT * FROM {0}".format(title))
+
+	return c
+	db.commit()
+	db.close()
 #print(get_accounts("asdsdaaaasdasdsd"))
 
 #add_account('a', 'a')
