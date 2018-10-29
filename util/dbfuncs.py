@@ -180,3 +180,16 @@ def whole_story(title):
 	return text
 	db.commit()
 	db.close()
+
+def all_stories(user):
+	DB_FILE = "data/curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread = False)
+	c = db.cursor()
+	c.execute("SELECT * FROM list_stories")
+	stories = []
+	for thing in c:
+		stories.append(thing[0])
+	return stories
+	db.commit() #save changes
+	db.close() #close database
