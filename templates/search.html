@@ -13,14 +13,14 @@
       <form action="/logout">
         <input type="submit" name="logout" value="Logout"> </input>
       </form> <br>
-
+	  <form action="/goHome" method ="POST">
+      <input type="submit" name="goHome" value="Home"> </input>
+	 </form>
+	THESE ARE YOUR SEARCH RESULTS!!!!!
       <form action = "/viewStory" method="POST">
       {% for storyname in stories %}
       <input type = "submit" name = "title" value = {{storyname}}></input>
       {% endfor %}
 	  <input type = "submit" name = "title" value = 'bestest'></input>
       </form>
-      <form action ="/addStory">
-        <input type="submit" name="addstory" value="Add Story"> </input>
-      </form> <br>
 {%endblock%}

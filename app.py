@@ -115,7 +115,7 @@ def hehe():
 	
 @app.route("/search", methods = ["POST"])
 def searching():
-	return "yes"
+	return render_template("search.html",stories = dbfuncs.search_stories(request.form['search']))
 		#request.form['search']
 		#db.funcs get seached thingies
 		#return render template with the stories given back
