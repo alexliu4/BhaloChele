@@ -149,9 +149,12 @@ Ability to view list of stories at home page (sqlite side)
 To Do: Search functionality, clean up code
 Completed:
 ===========================================================================
-bambaS -- 2019-10-27 13:35
-
+bambaS -- 2019-10-28 23:35
+Create search route, run for bugs
 ---------------------------------------------------------------------------
-ahmedH -- 2018-10-27 13:45
-
+ahmedH -- 2018-10-28 23:45
+Clean up code, add py comments, create search.html
+---------------------------------------------------------------------------
+chanD -- 2018-10-28 22:45
+Work on dbfuncs all_stories, get_latest_update, run for bugs 
 ---------------------------------------------------------------------------
