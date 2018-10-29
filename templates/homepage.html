@@ -25,4 +25,13 @@
       <form action ="/addStory">
         <input type="submit" name="addstory" value="Add Story"> </input>
       </form> <br>
+	  <br>
+	  <br>
+	  <br><br><br><br><br><br><br><br><br>
+	  <br> ALL STORIES <br>
+	  <form action = "viewStory"method="POST">
+      {% for name in total_list %}
+      <input type = "submit" name = "title" value = {{name}}></input>
+      {% endfor %}
+      </form>
 {%endblock%}

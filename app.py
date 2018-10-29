@@ -14,7 +14,8 @@ def home():
 	if 'logged_in?' in session and session['logged_in?']: #if a user is logged in
 		return render_template("homepage.html",
                                     user = session['username'],
-                                    stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
+                                    stories = dbfuncs.viewed_stories(session['username']),
+									total_list = dbfuncs.all_stories(session['username']))#send to welcome page
 	else:
 		return render_template("login.html" )#login page
 
@@ -110,6 +111,14 @@ def newContent():
 def hehe():
 	return redirect(url_for('home'))
 
+	
+@app.route("/search", methods = ["POST"])
+def searching():
+	return "yes"
+		#request.form['search']
+		#db.funcs get seached thingies
+		#return render template with the stories given back
+	
 if __name__ == "__main__":
     app.debug = True
     app.run()
