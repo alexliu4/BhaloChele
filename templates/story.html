@@ -23,6 +23,8 @@
 	If you want to add to {{title}} <br>
 	Your contribution <br>
   <form action="/addToStory" method ="POST">
+	<select name="title">
+		<option value= {{title}} selected>{{title}}</option>
 	<input type="text" name="newEntry"></input>
 	<input type ="submit" name = "addToStory" value = "Submit"></input>
 	</form>

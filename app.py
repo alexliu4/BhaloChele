@@ -77,7 +77,7 @@ def addStory():
 	chars = set(' 0123456790!@#$%^&*()_+-=[]\;./,{}|:"?><' + "'")
 	if any((c in chars) for c in request.form['title']):
 		flash("ERROR spaces, symbols and numbers not allowed in title")
-		return redirect(url_for('home'))#Send to homepage
+		return redirect(url_for('sendStoryPage'))#Send to homepage
 	if not dbfuncs.title_exist(request.form['title']):
 		dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
 	else:
@@ -102,9 +102,13 @@ def view():
 
 @app.route("/addToStory", methods = ['POST'])
 def newContent():
-	dbfuncs.add_text(session['username'], title, text)
+	dbfuncs.add_text(session['username'], request.form['title'], request.form['newEntry'])
+	flash("entry successfully added")
+	return render_template("homepage.html")
 
-
+@app.route("/goHome", methods = ['POST'])
+def hehe():
+	return redirect(url_for('home'))
 
 if __name__ == "__main__":
     app.debug = True
