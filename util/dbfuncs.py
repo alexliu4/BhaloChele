@@ -1,13 +1,5 @@
 import sqlite3   #enable control of an sqlite database
 
-DB_FILE="curbur.db"
-
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
-
-#==========================================================
-#INSERT YOUR POPULATE CODE IN THIS ZONE
-
 def add_account(user, pswd):
 	DB_FILE="data/curbur.db"
 
@@ -56,6 +48,7 @@ def find_id(user):
 	db.close() #close databas
 
 def add_to_viewed_stories(acc_id, title):
+
 	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE)
 	c = db.cursor()
@@ -187,7 +180,3 @@ def whole_story(title):
 	return text
 	db.commit()
 	db.close()
-#==========================================================
-
-db.commit() #save changes
-db.close() #close database
