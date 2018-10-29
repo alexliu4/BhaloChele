@@ -5,7 +5,17 @@
 {%endblock%}
 
 {% block content %}
-  Latest update to {{title}}
+  {% if not notAdded %}
+  It seems that you have added to this story.
+  <br>
+  This is the full story.
+  <br>
+  {{text}}
+  
+  {% endif %}
+  
+  {% if notAdded %}
+  Latest update to {{title}} 
   <br>
   {{text}}
   <br>
@@ -16,6 +26,7 @@
 	<input type="text" name="newEntry"></input>
 	<input type ="submit" name = "addToStory" value = "Submit"></input>
 	</form>
+	{% endif %}
   <form action="/goHome" method ="POST">
       <input type="submit" name="goHome" value="Home"> </input>
 	 </form>

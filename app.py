@@ -11,13 +11,12 @@ users = {'sh':'hi'}
 
 @app.route("/")
 def home():
-    if 'logged_in?' in session and session['logged_in?']: #if a user is logged in
-
-        return render_template("homepage.html",
+	if 'logged_in?' in session and session['logged_in?']: #if a user is logged in
+		return render_template("homepage.html",
                                     user = session['username'],
                                     stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
-    else:
-        return render_template("login.html" )#login page
+	else:
+		return render_template("login.html" )#login page
 
 
 @app.route("/auth", methods = ['POST'])
@@ -90,16 +89,16 @@ def addStory():
 
 @app.route("/viewStory", methods = ['POST'])
 def view():
-    s_title = request.form['title']
-    ids = dbfuncs.get_added_accounts(s_title)
-    user_id = dbfuncs.find_id(session['username'])
-    for id in ids:
-        if user_id == id:
-            print("in")
-            return render_template("story.html", title = s_title, text = dbfuncs.whole_story(s_title))
-
-    latest_entry = dbfuncs.get_latest_update(s_title)
-    return render_template("story.html", title = s_title, text= latest_entry)
+	s_title = request.form['title']
+	ids = dbfuncs.get_added_accounts(s_title)
+	user_id = dbfuncs.find_id(session['username'])
+	for id in ids:
+		if user_id == id:
+			print("in")
+			return render_template("story.html", title = s_title, text = dbfuncs.whole_story(s_title))
+	
+	latest_entry = dbfuncs.get_latest_update(s_title)
+	return render_template("story.html", title = s_title, text= latest_entry, notAdded = True)
 
 @app.route("/addToStory", methods = ['POST'])
 def newContent():
