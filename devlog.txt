@@ -105,16 +105,16 @@ bambaS -- 2018-10-24 13:30
 Worked with Hasif and Derek
 ===========================================================================
 To Do: Add a add page functionality and ability for database to communicate with stories
-Completed:
+Completed: Added add page functionality and registration perfected
 ===========================================================================
 chiV -- 2018-10-25 13:43
-Wokred with Hasif and Shin - add Story button and page implemented as well as corresponding app.py code.
+Worked with Hasif and Shin - add Story button and page implemented as well as corresponding app.py code.
 ---------------------------------------------------------------------------
 chanD -- 2018-10-25 13:43
 Worked with Shin to add a check for existing usernames and added search functionality in the dbfuncs
 ---------------------------------------------------------------------------
 ahmedH -- 2018-10-25 13:43
-
+Worked on base html file with jinja implementation.
 ---------------------------------------------------------------------------
 bambaS -- 2018-10-25 13:43
 Worked with Derek to check register for existing usernames
@@ -122,9 +122,36 @@ Worked with Derek to check register for existing usernames
 bambaS -- 2018-10-25 22:14
 Users can now add storys that they need and want to share with the world
 ===========================================================================
-bambaS -- 2019-10-28 1:35
+To Do: Clean up html code and view whole story vs add to story
+Completed: Cleaned up html code. Still working on whole story vs add to story
+===========================================================================
+bambaS -- 2019-10-26 13:35
 When go to story page, can see latest update/ add to story
--------------------------------------------------------------------------------------------
-To Do:
+---------------------------------------------------------------------------
+chiV -- 2018-10-26 13:50
+Worked with Hasif to refactor html files. (using base.html)
+---------------------------------------------------------------------------
+chanD -- 2018-10-26 13:45
+Refactor dbfuncs code to be more efficient
+---------------------------------------------------------------------------
+ahmedH -- 2018-10-26 13:45
+Worked with Vincent to refactor html files. (using base.html)
+---------------------------------------------------------------------------
+To Do: View stories at home page
+Completed: Stories are viewable
+===========================================================================
+bambaS -- 2019-10-27 22:10
+Ability to view list of stories at home page (flask side)
+---------------------------------------------------------------------------
+ahmedH -- 2018-10-27 22:10
+Ability to view list of stories at home page (sqlite side)
+===========================================================================
+To Do: Search functionality, clean up code
 Completed:
 ===========================================================================
+bambaS -- 2019-10-27 13:35
+
+---------------------------------------------------------------------------
+ahmedH -- 2018-10-27 13:45
+
+---------------------------------------------------------------------------
