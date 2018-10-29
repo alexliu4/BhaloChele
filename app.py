@@ -75,7 +75,10 @@ def sendStoryPage():
 
 @app.route("/peeppee", methods = ['POST'])
 def addStory():
-	dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
+	if not dbfuncs.title_exist(request.form['title']):
+		dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
+	else:
+		flash("ERROR story title already exists")
     #add request.form['title']
     #add request.form['content']
 	return redirect(url_for('home'))#Send to homepage
@@ -94,7 +97,11 @@ def view():
     latest_entry = dbfuncs.get_latest_update(s_title)
     return render_template("story.html", title = s_title, text= latest_entry)
 
+@app.route("/addToStory", methods = ['POST'])
+def newContent():
+	dbfuncs.add_text(session['username'], title, text)
 
+	
 
 if __name__ == "__main__":
     app.debug = True
