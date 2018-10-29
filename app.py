@@ -75,6 +75,10 @@ def sendStoryPage():
 
 @app.route("/peeppee", methods = ['POST'])
 def addStory():
+	chars = set(' 0123456790!@#$%^&*()_+-=[]\;./,{}|:"?><' + "'")
+	if any((c in chars) for c in request.form['title']):
+		flash("ERROR spaces, symbols and numbers not allowed in title")
+		return redirect(url_for('home'))#Send to homepage
 	if not dbfuncs.title_exist(request.form['title']):
 		dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
 	else:
