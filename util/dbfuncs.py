@@ -1,6 +1,6 @@
 import sqlite3   #enable control of an sqlite database
 
-def add_account(user, pswd):
+def add_account(user, pswd): #enables adding accounts
 	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
@@ -19,7 +19,7 @@ def add_account(user, pswd):
 	db.close() #close database
 	return True
 
-def search_stories(term):
+def search_stories(term): #returns a list of stories with the term specified
 	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE)
 	c = db.cursor()
@@ -33,7 +33,7 @@ def search_stories(term):
 	db.commit() #save changes
 	db.close() #close database
 
-def find_id(user):
+def find_id(user): #gets the account id from a username
 	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
@@ -47,7 +47,7 @@ def find_id(user):
 	db.commit() #save changes
 	db.close() #close databas
 
-def add_to_viewed_stories(acc_id, title):
+def add_to_viewed_stories(acc_id, title): #records which stories have the users particpated in
 
 	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE)
@@ -57,7 +57,7 @@ def add_to_viewed_stories(acc_id, title):
 	db.commit() #save changes
 	db.close() #close database
 
-def add_text(user, title, text):
+def add_text(user, title, text): #adds text to an existing story
 	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
@@ -68,12 +68,12 @@ def add_text(user, title, text):
 	c.execute("SELECT entry_id FROM {0}".format(title))
 	entry_id = 0
 	for thing in c:
-		id = thing[0]
+		entry_id = thing[0]
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format(title, entry_id+1, text))
 	db.commit() #save changes
 	db.close() #close database
 
-def add_new_story(user,title,text):
+def add_new_story(user,title,text): #adds a new story
 	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
@@ -88,7 +88,7 @@ def add_new_story(user,title,text):
 	db.commit() #save changes
 	db.close() #close database
 
-def get_accounts(user):
+def get_accounts(user): #
 	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
