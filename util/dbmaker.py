@@ -1,6 +1,6 @@
 import sqlite3   #enable control of an sqlite database
 
-DB_FILE="curbur.db"
+DB_FILE="data/curbur.db"
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops

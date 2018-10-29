@@ -9,7 +9,7 @@ c = db.cursor()               #facilitate db ops
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
 def add_account(user, pswd):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
@@ -28,7 +28,7 @@ def add_account(user, pswd):
 	return True
 
 def search_stories(term):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE)
 	c = db.cursor()
 
@@ -42,7 +42,7 @@ def search_stories(term):
 	db.close() #close database
 
 def find_id(user):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
 	c.execute("SELECT * FROM accounts")
@@ -56,7 +56,7 @@ def find_id(user):
 	db.close() #close databas
 
 def add_to_viewed_stories(acc_id, title):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE)
 	c = db.cursor()
 	c.execute("INSERT INTO {0} VALUES( {1}, '{2}');".format('stories_viewable', acc_id, title))
@@ -65,7 +65,7 @@ def add_to_viewed_stories(acc_id, title):
 	db.close() #close database
 
 def add_text(user, title, text):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()               #facilitate db ops
 
@@ -81,7 +81,7 @@ def add_text(user, title, text):
 	db.close() #close database
 
 def add_new_story(user,title,text):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()
@@ -96,7 +96,7 @@ def add_new_story(user,title,text):
 	db.close() #close database
 
 def get_accounts(user):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()
@@ -113,7 +113,7 @@ def get_accounts(user):
 	return ""
 
 def title_exist(title):
-	DB_FILE="curbur.db"
+	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
 	c = db.cursor()
@@ -130,7 +130,7 @@ def title_exist(title):
 	return False
 
 def viewed_stories(user):
-	DB_FILE = "curbur.db"
+	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
@@ -144,7 +144,7 @@ def viewed_stories(user):
 	db.close()
 
 def get_latest_update(title):
-	DB_FILE = "curbur.db"
+	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
@@ -158,7 +158,7 @@ def get_latest_update(title):
 	db.close()
 
 def get_added_accounts(title):
-	DB_FILE = "curbur.db"
+	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
@@ -174,7 +174,7 @@ def get_added_accounts(title):
 	db.close()
 
 def whole_story(title):
-	DB_FILE = "curbur.db"
+	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()

@@ -1,5 +1,5 @@
 import os, sqlite3
-import dbfuncs as dbfuncs
+import util.dbfuncs as dbfuncs
 from flask import Flask, render_template, redirect, session, flash, request, url_for
 app = Flask(__name__)
 
@@ -101,7 +101,7 @@ def view():
 def newContent():
 	dbfuncs.add_text(session['username'], title, text)
 
-	
+
 
 if __name__ == "__main__":
     app.debug = True
