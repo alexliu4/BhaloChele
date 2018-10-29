@@ -88,7 +88,7 @@ def add_new_story(user,title,text): #adds a new story
 	db.commit() #save changes
 	db.close() #close database
 
-def get_accounts(user): #
+def get_accounts(user): #retrieves the password of the username if the account exists otherwise it returns an empty string
 	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
@@ -105,7 +105,7 @@ def get_accounts(user): #
 	db.close() #close database
 	return ""
 
-def title_exist(title):
+def title_exist(title): #returns true if the title of a story is taken
 	DB_FILE="data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
@@ -122,21 +122,21 @@ def title_exist(title):
 	db.close() #close database
 	return False
 
-def viewed_stories(user):
+def viewed_stories(user): #returns all the titles that a user has viewed
 	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 	acc_id = find_id(user)
-	x = c.execute("SELECT * FROM {0} WHERE {1} = {2};".format("stories_viewable", "account_id", acc_id))
+	c.execute("SELECT * FROM {0} WHERE {1} = {2};".format("stories_viewable", "account_id", acc_id))
 	d = []
-	for item in x:
+	for item in c:
 		d.append(item[1])
 	return d
 	db.commit()
 	db.close()
 
-def get_latest_update(title):
+def get_latest_update(title):# returns the last entry in a specified story
 	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
@@ -150,38 +150,38 @@ def get_latest_update(title):
 	db.commit()
 	db.close()
 
-def get_added_accounts(title):
+def get_added_accounts(title): #returns a list that added to a specified story
 	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 
-	x = c.execute("SELECT {0} FROM {1} WHERE {2} = '{3}'".format('account_id', "stories_viewable", "titles", title))
+	c.execute("SELECT {0} FROM {1} WHERE {2} = '{3}'".format('account_id', "stories_viewable", "titles", title))
 
 	ids = []
-	for thing in x:
+	for thing in c:
 		ids.append(thing[0])
 	print(ids)
 	return ids
 	db.commit()
 	db.close()
 
-def whole_story(title):
+def whole_story(title): # returns the whole story in a string
 	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 
-	x = c.execute("SELECT {0} FROM {1}".format("entry", title))
+	c.execute("SELECT {0} FROM {1}".format("entry", title))
 	text = ""
-	for thing in x:
+	for thing in c:
 		text += thing[0] + "\n"
 	print(text)
 	return text
 	db.commit()
 	db.close()
 
-def all_stories(user):
+def all_stories(user): # returns a list of all stories
 	DB_FILE = "data/curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
