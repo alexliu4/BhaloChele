@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+
+{%block title%}
+    Login
+{%endblock%}
+
+{% block content %}
 	<center>
-		{% set messages = get_flashed_messages() %}
-		{% for message in messages %}
-			<p>{{message}}</p>
-		{% endfor %}
-    {% block register %}
-      <form action="/auth" method="POST">
+    <form action="/auth" method="POST">
 	username <br>
 	<input type="text" name="username"></input>
 	<br><br>
@@ -19,14 +15,8 @@
 	<br><br>
 	<input type="submit" name="submitButton" value="Login"></input>
       </form> <br> <br>
-      {% endblock %}
     <form action="/registerGo" method ="POST">
       <input type="submit" name="register" value="Register"> </input>
 	 </form>
-	{% block footer %}
-	&copy; Team BhaloChele (Good Boy).<br>
-	Yinon Chan, Shin Bamba, Hasif Ahmed, Vincent Chi
-	{% endblock %}
-    </center>
-  </body>
-</html>
+	</center>
+{%endblock%}

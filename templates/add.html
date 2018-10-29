@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> Add Story </title>
-  </head>
-  <body>
+{% extends "base.html" %}
+
+{%block title%}
+    AddStory
+{%endblock%}
+
+{% block content %}
     <center>
     <form action = "/peeppee" method = "POST">
       Title: <br>
@@ -16,5 +17,4 @@
       <input type="submit" name="goHome" value="Home"> </input>
 	 </form>
     </center>
-  </body>
-</html>
+{%endblock%}

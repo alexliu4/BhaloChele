@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}} </title>
-  </head>
-  <body>
-  
-  Latest update to {{title}} 
+{% extends "base.html" %}
+
+{%block title%}
+    {{title}}
+{%endblock%}
+
+{% block content %}
+  Latest update to {{title}}
   <br>
   {{text}}
   <br>
@@ -19,5 +19,4 @@
   <form action="/goHome" method ="POST">
       <input type="submit" name="goHome" value="Home"> </input>
 	 </form>
-  </body>
-</html>
+{%endblock%}

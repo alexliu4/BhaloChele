@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Homepage</title>
-  </head>
-  <body>
-		{% set messages = get_flashed_messages() %}
-		{% for message in messages %}
-			<p>{{message}}</p>
-		{% endfor %}
+{% extends "base.html" %}
+
+{%block title%}
+    Homepage
+{%endblock%}
+
+{% block content %}
 	  <form action="/search" method= "POST">
 	    search <br>
 	    <input type= "text" name= "search"></input> <br><br>
@@ -27,6 +24,4 @@
       <form action ="/addStory">
         <input type="submit" name="addstory" value="Add Story"> </input>
       </form> <br>
-
-  </body>
-</html>
+{%endblock%}

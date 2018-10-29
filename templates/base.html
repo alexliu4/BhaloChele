@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
+{% block head %}
   <head>
-    <title> </title>
+    <meta charset = "UTF-8">
+    <title> {% block title %} {%endblock%} -|- BhaloChele </title>
   </head>
-  <body>
-  </body>
+{%endblock%}
+<body>
+
+  {% block response %}
+    {% set messages = get_flashed_messages() %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+  {%endblock%}
+
+  {% block content %}
+
+  {%endblock%}
+
+  {% block footer %}
+  <center>
+	&copy; Team BhaloChele (Good Boy).<br>
+	Yinon Chan, Shin Bamba, Hasif Ahmed, Vincent Chi
+  </center>
+	{% endblock %}
+</body>
 </html>
