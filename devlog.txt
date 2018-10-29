@@ -147,9 +147,12 @@ ahmedH -- 2018-10-27 22:10
 Ability to view list of stories at home page (sqlite side)
 ===========================================================================
 To Do: Search functionality, clean up code
-Completed:
+Completed: Add to story functionality
 ===========================================================================
-bambaS -- 2019-10-28 23:35
+chiV -- 2018-10-28 22:28
+Small additions of buttons and goHome route for convenience.
+---------------------------------------------------------------------------
+bambaS -- 2018-10-28 23:35
 Create search route, run for bugs
 ---------------------------------------------------------------------------
 ahmedH -- 2018-10-28 23:45
