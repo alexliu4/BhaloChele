@@ -122,7 +122,6 @@ def viewed_stories(user):
 	d = []
 	for item in x:
 		d.append(item[1])
-	print(d)
 	return d
 	db.commit()
 	db.close()
@@ -133,10 +132,10 @@ def get_latest_update(title):
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 
-	c.execute("SELECT {0} FROM {1}".format('entry_id',title))
+	c.execute("SELECT {0} FROM {1}".format('entry',title))
+	latest = ""
 	for entry in c:
 		latest = entry[0]
-	print(latest)
 	return latest
 	db.commit()
 	db.close()
@@ -147,7 +146,12 @@ def get_added_accounts(title):
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 
-	ids = c.execute("SELECT {0} FROM {1}".format('entry_id',title))
+	x = c.execute("SELECT {0} FROM {1} WHERE {2} = '{3}'".format('account_id', "stories_viewable", "titles", title))
+
+	ids = []
+	for thing in x:
+		ids.append(thing[0])
+	print(ids)
 	return ids
 	db.commit()
 	db.close()
@@ -158,9 +162,12 @@ def whole_story(title):
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
 
-	c.execute("SELECT * FROM {0}".format(title))
-
-	return c
+	x = c.execute("SELECT {0} FROM {1}".format("entry", title))
+	text = ""
+	for thing in x:
+		text += thing[0] + "\n"
+	print(text)
+	return text
 	db.commit()
 	db.close()
 #==========================================================
