@@ -27,7 +27,7 @@ def login():
     if len(wow) > 0 and wow == request.form['password']:
         session['username'] = request.form['username']
         session["logged_in?"] = True
-        
+
         return render_template('homepage.html',
                                 user = session['username'],
                                 stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
@@ -85,17 +85,17 @@ def addStory():
 @app.route("/viewStory", methods = ['POST'])
 def view():
 	s_title = request.form['title']
-	ids = db.funcs.get_added_accounts(s_title)
+	ids = dbfuncs.get_added_accounts(s_title)
 	user_id = dbfuncs.find_id(session['username'])
 	for id in ids:
 		if user_id == id:
 			return render_template("story.html", title = s_title, text = db.funcs.whole_story(s_title))
-		
-	
-	latesst_entry= dbfuncs.get_latest_update(s_title)
-	return render_template("story.html", title = s_title, text= latest_entry[0])
-	
-	
+
+
+	latest_entry = dbfuncs.get_latest_update(s_title)
+	return render_template("story.html", title = s_title, text= latest_entry)
+
+
 
 if __name__ == "__main__":
     app.debug = True
