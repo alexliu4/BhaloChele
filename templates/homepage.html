@@ -16,7 +16,7 @@
     	  <h3>Hello {{name}}, your story begins here.</h3>
 	    </center>
       <form action = "viewStory"method="POST">
-      {% for acc_id,storyname in stories.items() %}
+      {% for storyname in stories %}
       <input type = "submit" name = "title" value = {{storyname}}></input>
       {% endfor %}
       </form>

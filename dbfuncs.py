@@ -117,10 +117,12 @@ def viewed_stories(user):
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
-	x = c.execute("SELECT * FROM {0};".format("stories_viewable"))
-	d = {}
-	for j,k in x:
-		d[j] = k
+	acc_id = find_id(user)
+	x = c.execute("SELECT * FROM {0} WHERE {1} = {2};".format("stories_viewable", "account_id", acc_id))
+	d = []
+	for item in x:
+		d.append(item[1])
+	print(d)
 	return d
 	db.commit()
 	db.close()
@@ -130,42 +132,36 @@ def get_latest_update(title):
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
-	
+
 	c.execute("SELECT {0} FROM {1}".format('entry',title))
 	for entry in c:
 		latest = entry
 	return entry
 	db.commit()
 	db.close()
-	
+
 def get_added_accounts(title):
 	DB_FILE = "curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
-	
+
 	ids = c.execute("SELECT {0} FROM {1}".format('entry_id',title))
 	return ids
 	db.commit()
 	db.close()
-	
+
 def whole_story(title):
 	DB_FILE = "curbur.db"
 
 	db = sqlite3.connect(DB_FILE,check_same_thread = False)
 	c = db.cursor()
-	
+
 	c.execute("SELECT * FROM {0}".format(title))
 
 	return c
 	db.commit()
 	db.close()
-#print(get_accounts("asdsdaaaasdasdsd"))
-
-#add_account('a', 'a')
-#add_account('b','b')
-#add_new_story(0, 'story1', 'blah blah blah.')
-#add_text(1, 'story1', 'halb halb halb.')
 #==========================================================
 
 db.commit() #save changes
