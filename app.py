@@ -54,6 +54,9 @@ def gohome():
 
 @app.route("/register", methods = ['POST'])
 def register():
+	if len(request.form['rusername']) == 0 or len(request.form['rpassword']) == 0:
+		flash('username/password must be longer than 0 characters')
+		return render_template('login.html')#back to login page
 	if not dbfuncs.add_account(request.form['rusername'],request.form['rpassword']): #checks is username is taken
 		flash("username is taken, please try again")
 		return render_template('login.html')#back to login page
