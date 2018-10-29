@@ -106,7 +106,7 @@ def view():
 def newContent():
 	dbfuncs.add_text(session['username'], request.form['title'], request.form['newEntry'])
 	flash("entry successfully added")
-	return render_template("homepage.html")
+	return redirect(url_for('home'))
 
 @app.route("/goHome", methods = ['POST'])
 def hehe():
