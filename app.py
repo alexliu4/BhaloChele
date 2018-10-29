@@ -29,7 +29,8 @@ def login():
 
         return render_template('homepage.html',
                                 user = session['username'],
-                                stories = dbfuncs.viewed_stories(session['username']) )#send to welcome page
+                                stories = dbfuncs.viewed_stories(session['username']),
+								total_list = dbfuncs.all_stories(session['username'])								)#send to welcome page
     else:
         flash("Invalid username/password. Please try again. If you do not have an account please register")
         return render_template("login.html",name = request.form['username'])
