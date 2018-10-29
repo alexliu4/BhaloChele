@@ -112,6 +112,23 @@ def get_accounts(user):
 	db.close() #close database
 	return ""
 
+def title_exist(title):
+	DB_FILE="curbur.db"
+
+	db = sqlite3.connect(DB_FILE,check_same_thread=False) #open if file exists, otherwise create
+	c = db.cursor()
+	c.execute("SELECT * FROM {0}".format("list_stories"))
+
+	for thing in c:
+		if title == thing[0]:
+			return True
+			db.commit() #save changes
+			db.close()
+			return x
+	db.commit() #save changes
+	db.close() #close database
+	return False
+
 def viewed_stories(user):
 	DB_FILE = "curbur.db"
 
