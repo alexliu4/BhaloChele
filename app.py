@@ -83,10 +83,15 @@ def addStory():
 	if any((c in chars) for c in request.form['title']):
 		flash("ERROR spaces, symbols and numbers not allowed in title")
 		return redirect(url_for('sendStoryPage'))#Send to homepage
-	if not dbfuncs.title_exist(request.form['title']):
+	if request.form['title'] == '':
+		flash("ERROR title cannot be blank")
+		return redirect(url_for('sendStoryPage'))
+
+	elif not dbfuncs.title_exist(request.form['title']):
 		dbfuncs.add_new_story(session['username'],request.form['title'], request.form['content'])
 	else:
 		flash("ERROR story title already exists")
+
     #add request.form['title']
     #add request.form['content']
 	return redirect(url_for('home'))#Send to homepage
@@ -101,7 +106,7 @@ def view():
 		if user_id == id:
 			print("in")
 			return render_template("story.html", title = s_title, text = dbfuncs.whole_story(s_title))
-	
+
 	latest_entry = dbfuncs.get_latest_update(s_title)
 	return render_template("story.html", title = s_title, text= latest_entry, notAdded = True)
 
@@ -115,14 +120,14 @@ def newContent():
 def hehe():
 	return redirect(url_for('home'))
 
-	
+
 @app.route("/search", methods = ["POST"])
 def searching():
 	return render_template("search.html",stories = dbfuncs.search_stories(request.form['search']))
 		#request.form['search']
 		#db.funcs get seached thingies
 		#return render template with the stories given back
-	
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
