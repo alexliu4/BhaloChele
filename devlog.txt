@@ -159,5 +159,11 @@ ahmedH -- 2018-10-28 23:45
 Clean up code, add py comments, create search.html
 ---------------------------------------------------------------------------
 chanD -- 2018-10-28 22:45
-Work on dbfuncs all_stories, get_latest_update, run for bugs 
+Work on dbfuncs all_stories, get_latest_update, run for bugs
+===========================================================================
+To Do: Fix blank title bug
+Completed: Error message flashes if a blank title is submitted
+===========================================================================
+ahmedH -- 2018-10-30 19:48
+Fixed blank title bug
 ---------------------------------------------------------------------------
