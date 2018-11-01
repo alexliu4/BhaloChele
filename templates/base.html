@@ -2,6 +2,21 @@
 <html lang = "en">
 {% block head %}
   <head>
+    <style>
+    .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     color: black;
+     text-align: center;
+  }
+    .button{
+      padding: 15px;
+      height: 100px;
+      width: 100px;
+    }
+  </style>
     <meta charset = "UTF-8">
     <title> {% block title %} {%endblock%} -|- BhaloChele </title>
   </head>
@@ -20,10 +35,14 @@
   {%endblock%}
 
   {% block footer %}
+
   <center>
+    <div class="footer">
 	&copy; Team BhaloChele (Good Boy).<br>
 	Yinon Chan, Shin Bamba, Hasif Ahmed, Vincent Chi
+    </div>
   </center>
+
 	{% endblock %}
 </body>
 </html>

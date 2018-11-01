@@ -6,31 +6,32 @@
 
 {% block content %}
 	  <form action="/search" method= "POST">
-	    search <br>
-	    <input type= "text" name= "search"></input> <br><br>
-	    <input type= "submit" name = "subbutton" value ="Search"></input>
+	    <input type="text" name="search"></input>
+	    <input type="submit" class="button" name="subbutton" value="Search"></input>
     </form>
-      <form action="/logout">
-        <input type="submit" name="logout" value="Logout"> </input>
-      </form> <br>
+    
       <center>
     	  <h3>Hello {{name}}, your story begins here.</h3>
 	    </center>
       <form action = "/viewStory" method="POST">
       {% for storyname in stories %}
-      <input type = "submit" name = "title" value = {{storyname}}></input>
+      <input type="submit" class="button" name="title" value ={{storyname}}></input>
       {% endfor %}
       </form>
       <form action ="/addStory">
-        <input type="submit" name="addstory" value="Add Story"> </input>
+        <input type="submit" class="button" name="addstory" value="Add Story"> </input>
       </form> <br>
 	  <br>
 	  <br>
-	  <br><br><br><br><br><br><br><br><br>
 	  <br> ALL STORIES <br>
 	  <form action = "viewStory"method="POST">
       {% for name in total_list %}
-      <input type = "submit" name = "title" value = {{name}}></input>
+      <input type="submit" class="button" name="title" value={{name}}></input>
       {% endfor %}
       </form>
+      <br><br>
+      <form action="/logout">
+        <input type="submit" class="button" name="logout" value="Logout"> </input>
+      </form>
+
 {%endblock%}
